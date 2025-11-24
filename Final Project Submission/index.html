@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- ===== META DATA ===== -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="styles.css" rel="stylesheet" />
+        <title>My Personal Homepage</title>
+    </head>
+
+    <body class="light-mode">
+      <!-- ===== DARK MODE TOGGLE ===== -->
+      <div style="text-align:center; padding:10px;">
+        <label>
+          <input type="checkbox" id="darkModeToggle">
+          Dark Mode
+        </label>
+      </div>
+
+      <!-- ===== HEADER SECTION ===== -->
+      <header>
+        <!-- Dynamic welcome message will update here -->
+        <h1 id="welcomeMessage">Welcome to My Homepage!</h1>
+      </header>
+
+      <!-- ===== NAVIGATION MENU ===== -->
+      <nav>
+        <a href="#aboutMe">About Me</a>
+        <a href="#featured">Featured</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- ===== MAIN CONTENT ===== -->
+      <main>
+
+        <!-- === ABOUT SECTION === -->
+        <section id="aboutMe">
+          <h2>About Me</h2>
+          <p>
+            Hello! My name is Christopher, and I’m a software developer passionate 
+            about creating interactive, user-friendly websites and applications.
+          </p>
+          <!-- Skills List (added using loop) -->
+          <h3>My Skills</h3>
+          <ul id="skillsList"></ul>
+        </section>
+        <!-- === FEATURED CONTENT SECTION === -->
+        <section id="featured">
+          <h2>Featured Content</h2>
+
+          <!-- University Resources DIV -->
+          <div id="universityResources" class="featured-box">
+            <h3>University Resources</h3>
+            <p>
+              <a href="https://nn.ecpi.net/" target="_blank">Visit ECPI University Homepage</a>
+              <a href="https://ecpi.instructure.com/courses/152595" target="_blank">Visit My Current Course Homepage</a>
+            </p>
+          </div>
+
+          <!-- Personal Projects DIV -->
+          <div id="personalProjects" class="featured-box">
+            <h3>Personal Projects</h3>
+            <a href="https://github.com/chrcra2226/Calculation-Program" target="_blank">
+              <img src="Calculation_Image.jpg">
+            </a>
+
+            <a href="https://github.com/chrcra2226/chrcra2226.github.io" target="_blank">
+              <img src="First_Website.jpg">
+            </a>
+          </div>
+        </section>
+        <!-- === PROJECTS SECTION === -->
+        <section id="projects" class="projects">
+          <h2>My Projects</h2>
+          <p>Here are a few of my projects hosted on GitHub:</p>
+
+          <!-- Placeholder images with GitHub links -->
+            <img src="Calculation_Image.jpg" 
+                alt="Project 1">
+          </a>
+
+            <img src="First_Website.jpg" 
+                alt="Project 2">
+          </a>
+
+          <a href="https://github.com/placeholder3" target="_blank">
+            <img src="Image_Placeholder_2.jpg" 
+                alt="Project 3">
+          </a>
+        </section>
+
+        <!-- === CONTACT SECTION === -->
+        <section id="contact">
+          <h2>Contact Me</h2>
+
+          <!-- Basic contact form -->
+          <form id="contactForm">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" placeholder="Subject" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" rows="5" 
+                      placeholder="Write your message here..." required>
+            </textarea>
+
+            <button id="submitButton" type="submit">Send Message</button>
+          </form>
+        </section>
+      </main>
+
+      <!-- Footer section -->
+      <footer>
+        <p>&copy; 2025 Christopher Crayton</p>
+      </footer>
+      <script src="functions.js"></script>
+    </body>
+</html>

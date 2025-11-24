@@ -1,0 +1,117 @@
+/* --- General Page Styling --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Light & Dark Mode Classes --- */
+body.light-mode {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+body.dark-mode {
+  background-color: #111;
+  color: #eee;
+}
+
+/* --- Header Section --- */
+header {
+    background-color: #0073e6;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+/* --- Navigation Bar --- */
+nav {
+    background-color: #333;
+    text-align: center;
+    padding: 0.5em 0;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* --- Main Page Layout --- */
+main {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+section {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Adjust section style in dark mode */
+body.dark-mode section {
+  background-color: #222;
+  box-shadow: none;
+}
+/* Header */
+h2 {
+    color: #0073e6;
+}
+/* increase size by 2.2 normal size on hover */
+img:hover {
+    transform: scale(2.2);
+}
+/* --- Featured Project Images*/
+.featured-box img {
+    width: 100%;
+    max-width: 250px;
+    margin-right: 10px;
+    border-radius: 6px;
+}
+/* --- Project Section Images --- */
+.projects img {
+    width: 100%;
+    max-width: 250px;
+    margin-right: 10px;
+    border-radius: 6px;
+}
+
+/* --- Featured Content Styling --- */
+.featured-box {
+  border: 2px solid #0073e6;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+/* --- Contact Form Styles --- */
+form input, form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #0073e6;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #005bb5;
+}
