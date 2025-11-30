@@ -40,10 +40,55 @@ darkToggle.addEventListener("change", () => {
     document.body.classList.toggle("light-mode");
 });
 
-/* ==== FORM SUBMIT INTERACTIVITY ==== */
+/* ===== DYNAMICALLY ADD NEW SECTION/CONTENT ===== */
+// Create a new paragraph for Projects section
+const newProjectParagraph = document.createElement("p");
+newProjectParagraph.textContent =
+  "Recently, I created an interactive JavaScript application that demonstrates dynamic DOM manipulation.";
+document.getElementById("projects").appendChild(newProjectParagraph);
+
+// Add a notification at the top of the page after delay
+setTimeout(() => {
+  const notice = document.createElement("div");
+  notice.textContent = "New content added to the site!";
+  notice.style.background = "#0073e6";
+  notice.style.color = "white";
+  notice.style.padding = "10px";
+  notice.style.textAlign = "center";
+  notice.style.fontWeight = "bold";
+  document.body.prepend(notice);
+}, 2000);  // appears after 2 seconds
+
+
+/* ===== MODIFY EXISTING ELEMENTS USING SELECTORS ===== */
+// Change About section heading text
+const aboutHeading = document.querySelector("#aboutMe h2");
+aboutHeading.textContent = "About Me (Updated with JavaScript)";
+
+// Add border + background to Featured section
+const featuredSection = document.getElementById("featured");
+featuredSection.style.border = "2px solid #0073e6";
+featuredSection.style.padding = "10px";
+featuredSection.style.backgroundColor = "#eef7ff";
+
+
+/* ===== TIMED CONFIRMATION MESSAGE FOR FORM SUBMISSIONS AND INTERACTIVITY ===== */
+const contactForm = document.getElementById("contactForm");
 const submitButton = document.getElementById("submitButton");
+
 submitButton.addEventListener("click", function(event) {
-    event.preventDefault();
-    const senderName = document.getElementById("name").value;
-    alert(`Thank you, ${senderName}, your message has been sent!`);
+  event.preventDefault();
+
+  const statusBox = document.getElementById("formStatus");
+  const senderName = document.getElementById("name").value;
+
+  // Show loading message
+  statusBox.textContent = "Sending message...";
+  statusBox.style.color = "orange";
+
+  // Simulate delay
+  setTimeout(() => {
+    statusBox.textContent = `Thank you, ${senderName}, your message has been sent!`;
+    statusBox.style.color = "green";
+  }, 2500); // 2.5 seconds delay
 });
