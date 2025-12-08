@@ -24,6 +24,42 @@ header {
     padding: 1em 0;
 }
 
+/* --- MODAL STYLING --- */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* transparent dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 9999;
+}
+
+.modal.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+/* Close Button */
+#closeModalBtn {
+  margin-top: 15px;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
 /* --- Navigation Bar --- */
 nav {
     background-color: #333;
@@ -62,14 +98,17 @@ body.dark-mode section {
   background-color: #222;
   box-shadow: none;
 }
+
 /* Header */
 h2 {
     color: #0073e6;
 }
+
 /* increase size by 2.2 normal size on hover */
 img:hover {
     transform: scale(2.2);
 }
+
 /* --- Featured Project Images*/
 .featured-box img {
     width: 100%;
@@ -77,6 +116,7 @@ img:hover {
     margin-right: 10px;
     border-radius: 6px;
 }
+
 /* --- Project Section Images --- */
 .projects img {
     width: 100%;
@@ -110,8 +150,22 @@ form button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    position: relative;
 }
 
 form button:hover {
     background-color: #005bb5;
+}
+
+form button:hover::after {
+    content: "Click to send your message!";
+    position: absolute;
+    top: -30px;
+    left: 0;
+    background: black;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    white-space: nowrap;
 }

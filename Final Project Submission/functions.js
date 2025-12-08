@@ -1,24 +1,18 @@
-/* ==== Welcome Message ==== */
-// Prompt the user for their name
-const userName = prompt("Welcome! What's your name?");
+/* ==== CUSTOM WELCOME MODAL ==== */
+const modal = document.getElementById("welcomeModal");
+const closeModalBtn = document.getElementById("closeModalBtn");
 
-// Select the header element to display a personalized greeting
-const welcomeElement = document.getElementById("welcomeMessage");
-
-// Check if the user entered a valid name
-if (userName && userName.trim() !== "") {
-          welcomeElement.textContent = `Welcome, ${userName}!`;
-} else {
-    welcomeElement.textContent = "Welcome to My Homepage!";
-}
+closeModalBtn.addEventListener("click", () => {
+  modal.classList.add("hidden");
+});
         
 /* ==== LOOP → DISPLAY SKILLS IN ABOUT SECTION ==== */
 const skills = ["HTML", "CSS", "JavaScript", "Python", "Java", "C"];
 const skillsList = document.getElementById("skillsList");
 skills.forEach(skill => {
-    const li = document.createElement("li");
-    li.textContent = skill;
-    skillsList.appendChild(li);
+  const li = document.createElement("li");
+  li.textContent = skill;
+  skillsList.appendChild(li);
 });
 
 /* ==== CONDITIONAL LOGIC → FEATURED CONTENT ===== */
@@ -26,18 +20,35 @@ const projectImages = document.querySelectorAll("#projects img");
 const universityDiv = document.getElementById("universityResources");
 const personalProjectsDiv = document.getElementById("personalProjects");
 if (projectImages.length < 3) {
-    universityDiv.style.display = "block";
-    personalProjectsDiv.style.display = "block";
+  universityDiv.style.display = "block";
+  personalProjectsDiv.style.display = "block";
 } else {
-    universityDiv.style.display = "none";
-    personalProjectsDiv.style.display = "block";
+  universityDiv.style.display = "none";
+  personalProjectsDiv.style.display = "block";
 }
 
-/* ==== DARK MODE TOGGLE ===== */
+/* ==== DARK MODE TOGGLE WITH LOCAL STORAGE ==== */
 const darkToggle = document.getElementById("darkModeToggle");
+
+// Apply saved preference on load
+const savedMode = localStorage.getItem("darkMode");
+
+if (savedMode === "enabled") {
+  document.body.classList.add("dark-mode");
+  document.body.classList.remove("light-mode");
+  darkToggle.checked = true; // slider position
+}
+
 darkToggle.addEventListener("change", () => {
-    document.body.classList.toggle("dark-mode");
-    document.body.classList.toggle("light-mode");
+  document.body.classList.toggle("dark-mode");
+  document.body.classList.toggle("light-mode");
+
+  // Save preference
+  if (document.body.classList.contains("dark-mode")) {
+    localStorage.setItem("darkMode", "enabled");
+  } else {
+    localStorage.setItem("darkMode", "disabled");
+  }
 });
 
 /* ===== DYNAMICALLY ADD NEW SECTION/CONTENT ===== */
