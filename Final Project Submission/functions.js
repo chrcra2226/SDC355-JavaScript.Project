@@ -14,6 +14,56 @@ skills.forEach(skill => {
   li.textContent = skill;
   skillsList.appendChild(li);
 });
+/* ==== Project Section is now created dynamically using JavaScript ==== */
+
+/* Create custom project objects */
+const projects = [
+  {
+    title: "Calculation Program",
+    summary: "A JavaScript-based calculator demonstrating user input and logic.",
+    image: "Calculation_Image.jpg",
+    repo: "https://github.com/chrcra2226/Calculation-Program"
+  },
+  {
+    title: "First Website",
+    summary: "My first personal website built with HTML, CSS, and JavaScript.",
+    image: "First_Website.jpg",
+    repo: "https://github.com/chrcra2226/chrcra2226.github.io"
+  },
+  {
+    title: "Placeholder Project",
+    summary: "A sample project demonstrating dynamic DOM rendering.",
+    image: "Image_Placeholder_2.jpg",
+    repo: "https://github.com/placeholder3"
+  }
+];
+
+/*Store or retrieve project data using sessionStorage */
+let projectData;
+
+if (!sessionStorage.getItem("projects")) {
+  sessionStorage.setItem("projects", JSON.stringify(projects));
+  projectData = projects;
+} else {
+  projectsData = JSON.parse(sessionStorage.getItem("projects"));
+}
+
+/* Render projects dynamically in the Projects section */
+const projectsSection = document.getElementById("projectSection");
+
+projectData.forEach(project => {
+  const projectCard = document.createElement("div");
+  projectCard.classList.add("project-card");
+
+  projectCard.innerHTML = `
+    <h3>${project.title}</h3>
+    <img src="${project.image}" alt="${project.title}">
+    <p>${project.summary}</p>
+    <a href="${project.repo}" target="_blank">View on GitHub</a>
+  `;
+
+  projectsSection.appendChild(projectCard);
+});
 
 /* ==== CONDITIONAL LOGIC → FEATURED CONTENT ===== */
 const projectImages = document.querySelectorAll("#projects img");
@@ -56,7 +106,7 @@ darkToggle.addEventListener("change", () => {
 const newProjectParagraph = document.createElement("p");
 newProjectParagraph.textContent =
   "Recently, I created an interactive JavaScript application that demonstrates dynamic DOM manipulation.";
-document.getElementById("projects").appendChild(newProjectParagraph);
+document.getElementById("projectSection").appendChild(newProjectParagraph);
 
 // Add a notification at the top of the page after delay
 setTimeout(() => {
